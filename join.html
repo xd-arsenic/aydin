@@ -105,7 +105,7 @@
 
                   <label class="join-field">
                     <span class="join-field-label"
-                      >1. How can I advocate for you? If you’re unsure: what
+                      >How can I advocate for you? If you’re unsure: what
                       challenges have you faced as a UCSD student, employee, or
                       community member?</span>
                     <textarea
@@ -118,19 +118,9 @@
                     <span class="join-char-hint" aria-live="polite">Max 1000 characters</span>
                   </label>
 
-                  <label class="join-field">
-                    <span class="join-field-label">2. Name</span>
-                    <input
-                      type="text"
-                      name="q2_name"
-                      required
-                      autocomplete="name"
-                    />
-                  </label>
-
                   <fieldset class="join-fieldset">
                     <legend class="join-field-label">
-                      3. Are you a student at UCSD?
+                      Are you a student at UCSD?
                     </legend>
                     <p class="join-field-hint">Choose one.</p>
                     <ul class="join-choice-list">
@@ -178,6 +168,105 @@
                     </ul>
                   </fieldset>
 
+                  <!-- Shown for undergrad or grad -->
+                  <div
+                    id="join-conditional-student"
+                    class="join-conditional join-card-dark"
+                    hidden
+                  >
+                    <fieldset class="join-fieldset">
+                      <legend class="join-field-label join-field-label--popup">
+                        <abbr
+                          class="join-popup-mark"
+                          title="This question appears when you select an option above"
+                          >*</abbr
+                        >
+                        Are you part of a student organization interested in
+                        hosting me?
+                      </legend>
+                      <p class="join-field-hint join-field-hint--dark">Choose one.</p>
+                      <ul class="join-choice-list">
+                        <li>
+                          <label class="join-radio-label join-radio-label--dark">
+                            <input
+                              type="radio"
+                              name="student_org_hosting"
+                              value="Yes, I'm a member"
+                            />
+                            <span>Yes, I’m a member</span>
+                          </label>
+                        </li>
+                        <li>
+                          <label class="join-radio-label join-radio-label--dark">
+                            <input
+                              type="radio"
+                              name="student_org_hosting"
+                              value="Yes, I'm a representative"
+                            />
+                            <span>Yes, I’m a representative</span>
+                          </label>
+                        </li>
+                        <li>
+                          <label class="join-radio-label join-radio-label--dark">
+                            <input
+                              type="radio"
+                              name="student_org_hosting"
+                              value="No"
+                            />
+                            <span>No</span>
+                          </label>
+                        </li>
+                      </ul>
+                    </fieldset>
+                    <div
+                      id="join-conditional-org-contact"
+                      class="join-conditional-nested"
+                      hidden
+                    >
+                      <label class="join-field join-field--dark">
+                        <span class="join-field-label join-field-label--popup"
+                          ><abbr
+                            class="join-popup-mark"
+                            title="This question appears when you select an option above"
+                            >*</abbr
+                          >
+                          Please provide the name and/or contact for the
+                          organization, I’ll be in touch!</span
+                        >
+                        <input
+                          type="text"
+                          name="student_org_contact"
+                          autocomplete="organization"
+                          placeholder=""
+                        />
+                      </label>
+                    </div>
+                  </div>
+
+                  <!-- Shown for UCSD affiliate (not student) -->
+                  <div
+                    id="join-conditional-affiliate"
+                    class="join-conditional join-card-dark"
+                    hidden
+                  >
+                    <label class="join-field join-field--dark">
+                      <span class="join-field-label join-field-label--popup"
+                        ><abbr
+                          class="join-popup-mark"
+                          title="This question appears when you select an option above"
+                          >*</abbr
+                        >
+                        What’s your affiliation with UCSD?</span
+                      >
+                      <input
+                        type="text"
+                        name="affiliate_ucsd_detail"
+                        autocomplete="organization-title"
+                        placeholder=""
+                      />
+                    </label>
+                  </div>
+
                   <p class="join-form-bridge">
                     If you’re comfortable with me reaching out, let me know your
                     preferred method of contact.
@@ -185,7 +274,7 @@
 
                   <fieldset class="join-fieldset">
                     <legend class="join-field-label">
-                      4. What’s your preferred method of contact?
+                      What’s your preferred method of contact?
                     </legend>
                     <p class="join-field-hint">You may select more than one.</p>
                     <ul class="join-choice-list join-choice-list--check">
@@ -228,8 +317,13 @@
                     hidden
                   >
                     <label class="join-field">
-                      <span class="join-field-label"
-                        >Signal (username or phone number)</span>
+                      <span class="join-field-label join-field-label--popup"
+                        ><abbr
+                          class="join-popup-mark"
+                          title="Shown when you select this contact method above"
+                          >*</abbr
+                        >
+                        Signal (username or phone number)</span>
                       <input
                         type="text"
                         name="q6_signal"
@@ -245,7 +339,13 @@
                     hidden
                   >
                     <label class="join-field">
-                      <span class="join-field-label">Phone number</span>
+                      <span class="join-field-label join-field-label--popup"
+                        ><abbr
+                          class="join-popup-mark"
+                          title="Shown when you select this contact method above"
+                          >*</abbr
+                        >
+                        Phone number</span>
                       <input type="tel" name="q7_phone" autocomplete="tel" />
                     </label>
                   </div>
@@ -256,7 +356,13 @@
                     hidden
                   >
                     <label class="join-field">
-                      <span class="join-field-label">Email address</span>
+                      <span class="join-field-label join-field-label--popup"
+                        ><abbr
+                          class="join-popup-mark"
+                          title="Shown when you select this contact method above"
+                          >*</abbr
+                        >
+                        Email address</span>
                       <input
                         type="email"
                         name="email"
@@ -272,8 +378,13 @@
                     hidden
                   >
                     <label class="join-field">
-                      <span class="join-field-label"
-                        >Other — how should we reach you?</span>
+                      <span class="join-field-label join-field-label--popup"
+                        ><abbr
+                          class="join-popup-mark"
+                          title="Shown when you select this contact method above"
+                          >*</abbr
+                        >
+                        Other — how should we reach you?</span>
                       <textarea
                         name="q_other_contact"
                         rows="3"
@@ -282,6 +393,48 @@
                       ></textarea>
                     </label>
                   </div>
+
+                  <fieldset
+                    class="join-fieldset join-card-dark join-identity-fieldset"
+                  >
+                    <legend class="join-field-label join-field-label--identity">
+                      Please choose how you would like to answer this form:
+                    </legend>
+                    <ul class="join-choice-list">
+                      <li>
+                        <label class="join-radio-label join-radio-label--dark">
+                          <input
+                            type="radio"
+                            name="identity_mode"
+                            value="anonymous"
+                            required
+                          />
+                          <span>Answer anonymously</span>
+                        </label>
+                      </li>
+                      <li class="join-identity-named-row">
+                        <label
+                          class="join-radio-label join-radio-label--dark join-radio-label--inline-name"
+                        >
+                          <input
+                            type="radio"
+                            name="identity_mode"
+                            value="named"
+                          />
+                          <span class="join-inline-name-label">Answer as</span>
+                          <input
+                            type="text"
+                            id="join-submitter-name"
+                            class="join-inline-name-input"
+                            name="submitter_name"
+                            autocomplete="name"
+                            placeholder="Your name"
+                            aria-label="Your name (when not anonymous)"
+                          />
+                        </label>
+                      </li>
+                    </ul>
+                  </fieldset>
 
                   <button type="submit" class="btn-cta join-form-submit">
                     Submit
@@ -351,10 +504,108 @@
               var inputEmail = form.querySelector('input[name="email"]');
               var inputOther = form.querySelector('textarea[name="q_other_contact"]');
 
+              var studentBlock = document.getElementById("join-conditional-student");
+              var affiliateBlock = document.getElementById("join-conditional-affiliate");
+              var orgContactWrap = document.getElementById("join-conditional-org-contact");
+              var hostingRadios = form.querySelectorAll('input[name="student_org_hosting"]');
+              var ucsdRadios = form.querySelectorAll('input[name="q3_ucsd_status"]');
+              var orgContactInput = form.querySelector('input[name="student_org_contact"]');
+              var affiliateInput = form.querySelector('input[name="affiliate_ucsd_detail"]');
+              var identityRadios = form.querySelectorAll('input[name="identity_mode"]');
+              var nameInput = document.getElementById("join-submitter-name");
+
               function setWrap(wrap, show) {
                 if (!wrap) return;
                 wrap.hidden = !show;
                 wrap.setAttribute("aria-hidden", show ? "false" : "true");
+              }
+
+              function isUcsdStudent(val) {
+                return (
+                  val.indexOf("undergraduate") !== -1 ||
+                  val.indexOf("graduate") !== -1
+                );
+              }
+
+              function isUcsdAffiliate(val) {
+                return val.indexOf("UCSD affiliate") !== -1;
+              }
+
+              function getQ3Value() {
+                var c = form.querySelector('input[name="q3_ucsd_status"]:checked');
+                return c ? c.value : "";
+              }
+
+              function clearStudentFields() {
+                hostingRadios.forEach(function (r) {
+                  r.checked = false;
+                  r.required = false;
+                });
+                if (orgContactInput) {
+                  orgContactInput.value = "";
+                  orgContactInput.required = false;
+                }
+                setWrap(orgContactWrap, false);
+              }
+
+              function clearAffiliateField() {
+                if (affiliateInput) {
+                  affiliateInput.value = "";
+                  affiliateInput.required = false;
+                }
+              }
+
+              function syncUcsd() {
+                var v = getQ3Value();
+                var showStudent = isUcsdStudent(v);
+                var showAffiliate = isUcsdAffiliate(v);
+
+                setWrap(studentBlock, showStudent);
+                setWrap(affiliateBlock, showAffiliate);
+
+                if (!showStudent) clearStudentFields();
+                if (!showAffiliate) clearAffiliateField();
+
+                if (showStudent) {
+                  hostingRadios.forEach(function (r, i) {
+                    r.required = i === 0;
+                  });
+                }
+                if (showAffiliate && affiliateInput) {
+                  affiliateInput.required = true;
+                }
+
+                syncOrgHosting();
+              }
+
+              function syncOrgHosting() {
+                if (!studentBlock || studentBlock.hidden) return;
+                var c = form.querySelector('input[name="student_org_hosting"]:checked');
+                var showContact =
+                  c && c.value !== "No" && c.value.indexOf("Yes") === 0;
+                setWrap(orgContactWrap, showContact);
+                if (orgContactInput) {
+                  orgContactInput.required = !!showContact;
+                  if (!showContact) orgContactInput.value = "";
+                }
+              }
+
+              function syncIdentity() {
+                if (!nameInput) return;
+                var mode = form.querySelector('input[name="identity_mode"]:checked');
+                if (!mode) {
+                  nameInput.required = false;
+                  nameInput.disabled = false;
+                  return;
+                }
+                if (mode.value === "named") {
+                  nameInput.required = true;
+                  nameInput.disabled = false;
+                } else {
+                  nameInput.required = false;
+                  nameInput.value = "";
+                  nameInput.disabled = true;
+                }
               }
 
               function sync() {
@@ -388,10 +639,48 @@
                 }
               }
 
+              form.addEventListener("submit", function (e) {
+                var mode = form.querySelector('input[name="identity_mode"]:checked');
+                if (mode && mode.value === "anonymous" && nameInput) {
+                  nameInput.disabled = false;
+                  nameInput.value = "Anonymous";
+                }
+                if (mode && mode.value === "named" && nameInput) {
+                  if (!nameInput.value.trim()) {
+                    e.preventDefault();
+                    nameInput.focus();
+                  }
+                }
+              });
+
               [cbSignal, cbEmail, cbPhoneText, cbPhoneCall, cbOther].forEach(function (el) {
                 if (el) el.addEventListener("change", sync);
               });
+              ucsdRadios.forEach(function (r) {
+                r.addEventListener("change", syncUcsd);
+              });
+              hostingRadios.forEach(function (r) {
+                r.addEventListener("change", syncOrgHosting);
+              });
+              identityRadios.forEach(function (r) {
+                r.addEventListener("change", syncIdentity);
+              });
+
+              if (nameInput) {
+                nameInput.addEventListener("focus", function () {
+                  var named = form.querySelector(
+                    'input[name="identity_mode"][value="named"]'
+                  );
+                  if (named) {
+                    named.checked = true;
+                    syncIdentity();
+                  }
+                });
+              }
+
               sync();
+              syncUcsd();
+              syncIdentity();
             })();
           </script>
 

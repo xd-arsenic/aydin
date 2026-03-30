@@ -6,7 +6,7 @@
   --yellow: #ffcd00;
   --peach: #ff914d;
   --peach-light: #ff9f55;
-  /* Flyer arc / light orange (from AYDIN.svg) */
+  /* Flyer arc / orange band (hero half-circle + Meet Aydın section) */
   --orange-flyer: #ffbd59;
   --white: #ffffff;
   --ink: #0a0f2c;
@@ -295,7 +295,6 @@ a:hover {
   height: 55%;
   background: var(--orange-flyer);
   border-radius: 50%;
-  opacity: 0.95;
   pointer-events: none;
 }
 
@@ -342,6 +341,7 @@ a:hover {
 
 .hero h1 {
   font-family: var(--font-display);
+  font-weight: 800;
   font-size: clamp(3.65rem, 13vw, 7rem);
   line-height: 0.95;
   margin: 0 0 0.35rem;
@@ -401,6 +401,13 @@ a:hover {
   line-height: 1.2;
 }
 
+.about-page.section--blue .about-page-title {
+  color: var(--yellow);
+  margin-bottom: 1.25rem;
+  text-transform: none;
+  letter-spacing: 0.02em;
+}
+
 .about-page .about-subtitle {
   font-size: clamp(1rem, 2.2vw, 1.35rem);
   font-weight: 700;
@@ -414,6 +421,19 @@ a:hover {
   margin: 0 0 1.15rem;
 }
 
+.about-page.section--blue .about-body {
+  max-width: 44rem;
+}
+
+.about-page.section--blue .about-body > p {
+  color: rgba(255, 255, 255, 0.94);
+  line-height: 1.65;
+}
+
+.about-page.section--blue .about-subtitle {
+  color: rgba(255, 255, 255, 0.9);
+}
+
 .about-page .about-body > h2 {
   margin: 2.25rem 0 1rem;
   font-size: clamp(1.35rem, 3vw, 1.65rem);
@@ -424,9 +444,17 @@ a:hover {
   color: var(--ink);
 }
 
+.about-page.section--blue .about-body > h2 {
+  color: var(--yellow);
+}
+
 .about-page .about-body .pullquote {
   margin-top: 2rem;
   margin-bottom: 0;
+}
+
+.about-back-wrap {
+  margin-top: 2rem;
 }
 
 /* —— Sections —— full-bleed bands; content aligns via .section-inner only */
@@ -471,6 +499,16 @@ a:hover {
 /* Light content sections (white field) */
 .section--surface {
   background: var(--white);
+}
+
+/* Homepage — Meet Aydın (#meet) */
+#meet .meet-lede-strong {
+  color: var(--peach);
+  font-weight: 800;
+}
+
+#meet .meet-cta-wrap {
+  margin-top: 1.5rem;
 }
 
 .platform-intro {
@@ -555,15 +593,6 @@ a:hover {
   text-decoration: underline;
   text-decoration-thickness: 2px;
   text-underline-offset: 4px;
-}
-
-/* Homepage — Join (surface; matches join.html) */
-.home-join-lede {
-  max-width: 42rem;
-}
-
-.home-join-cta-wrap {
-  margin-top: 1.25rem;
 }
 
 .endorse-cta-wrap {
@@ -738,6 +767,45 @@ details.platform-item .body {
 
 .section--blue details.platform-item .body {
   color: var(--ink-soft);
+}
+
+/* Platform — intro + section headings; topic rows use details.platform-item only */
+.platform-lede-main {
+  margin-bottom: 1rem;
+  max-width: 40rem;
+}
+
+.platform-pillars {
+  margin: 0 0 1.5rem;
+  padding-left: 1.25rem;
+  max-width: 44rem;
+  color: rgba(255, 255, 255, 0.94);
+  font-size: 0.98rem;
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+.platform-pillars li {
+  margin-bottom: 0.65rem;
+}
+
+.platform-pillars li::marker {
+  color: var(--yellow);
+}
+
+.platform-pillars strong {
+  color: var(--white);
+  font-weight: 800;
+}
+
+.platform-page h3.platform-group-title {
+  font-size: clamp(0.95rem, 2.2vw, 1.05rem);
+  margin-top: 1.75rem;
+  margin-bottom: 0.65rem;
+}
+
+.platform-page h3.platform-group-title:first-of-type {
+  margin-top: 0.25rem;
 }
 
 .platform-group-title {
@@ -1049,6 +1117,21 @@ details.platform-item .body {
   color: var(--ink);
 }
 
+/* Conditional / revealed fields — asterisk only, no numeric sequence */
+.join-popup-mark {
+  margin-right: 0.2em;
+  font-weight: 800;
+  font-size: 1.05em;
+  line-height: 1;
+  text-decoration: none;
+  color: var(--peach);
+  cursor: help;
+}
+
+.join-field-label--popup .join-popup-mark {
+  vertical-align: 0.05em;
+}
+
 .join-optional {
   font-weight: 500;
   color: var(--ink-soft);
@@ -1114,6 +1197,113 @@ details.platform-item .body {
   cursor: pointer;
 }
 
+/* Join — conditional / identity blocks (sub-cards; same palette as the form) */
+.join-card-dark {
+  margin: 0;
+  padding: 0.85rem 1rem;
+  border-radius: 0.65rem;
+  border: 1px solid rgba(46, 70, 255, 0.14);
+  background: rgba(248, 249, 255, 0.85);
+  box-shadow: none;
+}
+
+.join-card-dark .join-fieldset {
+  margin: 0;
+}
+
+.join-field-hint--dark {
+  color: var(--ink-soft);
+}
+
+.join-radio-label--dark,
+.join-field--dark .join-field-label {
+  color: var(--ink);
+}
+
+.join-radio-label--dark span {
+  color: var(--ink);
+}
+
+.join-card-dark .join-email-form input[type="text"],
+.join-card-dark input[type="text"] {
+  background: var(--white);
+  border: 1px solid rgba(46, 70, 255, 0.22);
+  color: var(--ink);
+}
+
+.join-card-dark .join-email-form input[type="text"]:focus,
+.join-card-dark input[type="text"]:focus {
+  outline: 2px solid rgba(46, 70, 255, 0.35);
+  outline-offset: 1px;
+  border-color: var(--blue-link);
+}
+
+.join-conditional-nested {
+  margin-top: 0.75rem;
+  padding-top: 0.65rem;
+  border-top: 1px solid rgba(46, 70, 255, 0.1);
+}
+
+.join-identity-fieldset {
+  margin-top: 0.35rem;
+  padding-top: 0.15rem;
+  overflow: visible;
+}
+
+.join-field-label--identity {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--ink);
+  margin-bottom: 0.5rem !important;
+  padding-top: 0.15rem;
+}
+
+.join-radio-label--inline-name {
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem 0.5rem;
+}
+
+.join-inline-name-label {
+  flex-shrink: 0;
+}
+
+.join-inline-name-input {
+  flex: 1;
+  min-width: 8rem;
+  max-width: 100%;
+  margin-left: 0;
+  padding: 0.45rem 0.55rem !important;
+  border-radius: 0.45rem !important;
+}
+
+.join-identity-fieldset .join-inline-name-input {
+  background: var(--white);
+  border: 1px solid rgba(46, 70, 255, 0.22);
+  color: var(--ink);
+}
+
+.join-identity-fieldset .join-inline-name-input:focus {
+  outline: 2px solid rgba(46, 70, 255, 0.35);
+  outline-offset: 1px;
+  border-color: var(--blue-link);
+}
+
+.join-identity-fieldset .join-inline-name-input:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.join-identity-named-row .join-radio-label--inline-name {
+  width: 100%;
+}
+
+@media (min-width: 480px) {
+  .join-radio-label--inline-name {
+    flex-wrap: nowrap;
+  }
+}
+
 .join-back-wrap {
   margin-top: 1.35rem;
 }
@@ -1158,6 +1348,22 @@ details.platform-item .body {
   text-transform: uppercase;
   margin: 0 0 1.25rem;
   line-height: 1.2;
+}
+
+.section--blue.endorse-page .endorse-page-title {
+  color: var(--yellow);
+}
+
+.section--blue.endorse-page .endorse-card {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.section--blue.endorse-page .endorse-card:hover {
+  color: var(--yellow);
+}
+
+.endorse-back-wrap {
+  margin-top: 2rem;
 }
 
 .endorse-grid {
