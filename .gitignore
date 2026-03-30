@@ -1,0 +1,12 @@
+# Mirrored live-site export (not source for this static build)
+aydin.vote/
+
+# One-off wget/httrack helper
+mirror_site.py
+
+# macOS / accidental exports
+.DS_Store
+AYDIN (1).png
+
+# Same file as root AYDIN.svg (index uses aydin.svg); avoid ~10MB duplicate in git
+assets/AYDIN.svg
