@@ -1042,6 +1042,8 @@ details.platform-item .body {
   max-width: 100%;
   height: 1200px;
   border: 0;
+  /* CryptPad embed is dark; invert + hue-shift approximates a light UI on our white page */
+  filter: invert(1) hue-rotate(180deg);
 }
 
 .join-email-form {
