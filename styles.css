@@ -65,6 +65,226 @@ a:hover {
   border-bottom: 3px solid var(--white);
 }
 
+/* Homepage — voting open announcement (modal) */
+.vote-modal[hidden] {
+  display: none !important;
+}
+
+.vote-modal:not([hidden]) {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: max(0.65rem, env(safe-area-inset-top, 0px))
+    max(0.65rem, var(--section-pad-x))
+    max(0.65rem, env(safe-area-inset-bottom, 0px));
+  background: rgba(10, 15, 44, 0.62);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.vote-modal__panel {
+  position: relative;
+  width: 100%;
+  max-width: min(96vw, 52rem);
+  margin: auto;
+  padding: clamp(1.1rem, 3.2vw, 2rem) clamp(1.15rem, 3.5vw, 2.4rem)
+    clamp(1rem, 2.6vw, 1.75rem);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  /* Same field as header — header.svg uses white type */
+  background: var(--blue);
+  color: var(--white);
+  border-radius: 1rem;
+  border: 3px solid var(--white);
+  box-shadow: 0 16px 48px rgba(10, 15, 44, 0.35);
+}
+
+@media (min-width: 640px) {
+  .vote-modal__panel {
+    max-width: min(92vw, 56rem);
+  }
+}
+
+@media (min-width: 1024px) {
+  .vote-modal__panel {
+    max-width: min(88vw, 60rem);
+  }
+}
+
+.vote-modal__headshot-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  margin: 0;
+  background: transparent;
+}
+
+/* Float on blue — no inner “card” frame */
+.vote-modal__headshot {
+  width: auto;
+  max-width: min(13rem, 58vw);
+  max-height: min(22vh, 14rem);
+  height: auto;
+  object-fit: contain;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+  display: block;
+}
+
+.vote-modal__close {
+  position: absolute;
+  top: clamp(0.3rem, 1.2vw, 0.7rem);
+  right: clamp(0.3rem, 1.2vw, 0.7rem);
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.4rem;
+  height: 2.4rem;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: clamp(1.45rem, 3.5vw, 1.75rem);
+  line-height: 1;
+  cursor: pointer;
+  border-radius: 0.35rem;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.vote-modal__close:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--white);
+}
+
+.vote-modal__close:focus-visible {
+  outline: 2px solid var(--yellow);
+  outline-offset: 2px;
+}
+
+.vote-modal__title {
+  font-family: var(--font-ui);
+  font-size: clamp(0.88rem, 2.3vw, 1.12rem);
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--yellow);
+  margin: 0 auto 0;
+  padding: 0 2.25rem;
+  line-height: 1.2;
+  text-align: center;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.12);
+}
+
+.vote-modal__body--inline {
+  margin: clamp(0.28rem, 0.85vw, 0.45rem) auto clamp(0.28rem, 0.85vw, 0.45rem);
+  max-width: 44rem;
+  text-align: center;
+}
+
+.vote-modal__inline-row {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.18rem 0.38rem;
+}
+
+.vote-modal__vote-word {
+  font-family: var(--font-ui);
+  font-weight: 800;
+  font-size: clamp(0.95rem, 2.5vw, 1.28rem);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.92);
+  line-height: 1;
+}
+
+.vote-modal__wordmark {
+  height: clamp(1.65rem, 4.6vw, 2.55rem);
+  width: auto;
+  max-width: min(75vw, 26rem);
+  object-fit: contain;
+  display: block;
+  flex-shrink: 0;
+}
+
+/* Must beat `.btn-cta` (declared later) or min-height/padding/font stay at default */
+.btn-cta.vote-modal__cta {
+  align-self: center;
+  width: auto;
+  max-width: min(22rem, calc(100% - 0.5rem));
+  box-sizing: border-box;
+  margin-top: clamp(0.45rem, 1.4vw, 0.75rem);
+  min-width: min(12rem, 100%);
+  min-height: clamp(3.85rem, 12vmin, 5.85rem);
+  padding: clamp(0.9rem, 2.6vmin, 1.35rem) clamp(1.75rem, 5vw, 3.25rem);
+  font-size: clamp(1.2rem, 4.2vw, 2rem);
+  letter-spacing: 0.055em;
+  line-height: 1.05;
+  box-shadow: 0 5px 20px rgba(10, 15, 44, 0.28),
+    0 0 0 3px rgba(255, 255, 255, 0.4);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+}
+
+.btn-cta.vote-modal__cta:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 26px rgba(10, 15, 44, 0.34),
+    0 0 0 3px rgba(255, 255, 255, 0.48);
+  filter: brightness(1.04);
+}
+
+.btn-cta.vote-modal__cta:active {
+  transform: translateY(0);
+  filter: brightness(0.98);
+}
+
+.btn-cta.vote-modal__cta:focus-visible {
+  outline: 5px solid var(--yellow);
+  outline-offset: 5px;
+}
+
+.vote-modal__more {
+  margin: clamp(0.32rem, 0.9vw, 0.48rem) 0 0;
+  text-align: center;
+}
+
+.vote-modal__more a {
+  font-size: clamp(0.75rem, 1.85vw, 0.85rem);
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.48);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+.vote-modal__more a:hover {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+body.vote-modal-open {
+  overflow: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vote-modal__close,
+  .btn-cta.vote-modal__cta {
+    transition: none;
+  }
+
+  .btn-cta.vote-modal__cta:hover,
+  .btn-cta.vote-modal__cta:active {
+    transform: none;
+  }
+}
+
 .header-inner {
   max-width: var(--max);
   margin: 0 auto;

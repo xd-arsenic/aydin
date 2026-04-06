@@ -21,6 +21,62 @@
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
 
+    <div
+      id="vote-open-modal"
+      class="vote-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="vote-modal-title"
+      hidden
+    >
+      <div class="vote-modal__panel">
+        <button
+          type="button"
+          class="vote-modal__close"
+          id="vote-modal-close"
+          aria-label="Close announcement"
+        >
+          <span aria-hidden="true">×</span>
+        </button>
+        <h2 id="vote-modal-title" class="vote-modal__title">
+          Voting is now open!!!
+        </h2>
+        <div class="vote-modal__headshot-wrap">
+          <img
+            class="vote-modal__headshot"
+            src="colorgraded-transparent.png"
+            alt="Aydın Yelkovan"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+        <p class="vote-modal__body vote-modal__body--inline">
+          <span class="vote-modal__inline-row">
+            <span class="vote-modal__vote-word">Vote</span>
+            <img
+              class="vote-modal__wordmark"
+              src="assets/header.svg"
+              alt=""
+              width="1500"
+              height="750"
+              decoding="async"
+              aria-hidden="true"
+            />
+          </span>
+        </p>
+        <a
+          class="btn-cta vote-modal__cta"
+          href="https://as.ucsd.edu/_images/homepage/ASUCSD%20Students.jpg"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Vote Now</a
+        >
+        <p class="vote-modal__more">
+          <a href="platform.html">Read more on platform</a>
+        </p>
+      </div>
+    </div>
+
     <header class="site-header">
       <div class="header-inner">
         <a class="brand-mark" href="index.html#top">
@@ -318,5 +374,6 @@ needs.
       </div>
     </footer>
     <script src="assets/nav.js" defer></script>
+    <script src="assets/vote-modal.js" defer></script>
   </body>
 </html>
